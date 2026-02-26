@@ -396,6 +396,15 @@ local Slider = Tab:CreateSlider({
 	end,
 })
 
+local Toggle = Tab:CreateToggle({
+	Name = "Flight",
+	CurrentValue = false,
+	Flag = "FlightToggle", 
+	Callback = function(Value)
+		
+	end,
+})
+
 local Tab = Window:CreateTab("Games", 4483362458)
 local Section = Tab:CreateSection("Break In Story")
 
