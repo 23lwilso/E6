@@ -409,6 +409,30 @@ local Tab = Window:CreateTab("Games", 4483362458)
 local Section = Tab:CreateSection("Break In Story")
 
 local Dropdown = Tab:CreateDropdown({
+	Name = "Role Select(only use in lobby)",
+	Options = {"Swat","Police"},
+	CurrentOption = {"Placeholder"},
+	MultipleOptions = true,
+	Flag = "BreakInStoryRoleDropdown", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Options)
+		
+		if Options == "Police"
+			local A_1 = "Gun"
+			local A_2 = true
+			local Event = game:GetService("ReplicatedStorage").RemoteEvents.OutsideRole
+			Event:FireServer(A_1, A_2) 
+		end
+		
+		if Options == "Swat" then
+			local A_1 = "SwatGun"
+			local A_2 = true
+			local Event = game:GetService("ReplicatedStorage").RemoteEvents.OutsideRole
+			Event:FireServer(A_1, A_2)
+		end
+	end,
+})
+
+local Dropdown = Tab:CreateDropdown({
 	Name = "Item Select",
 	Options = {"Placeholder","Apple","Cookie","Chips","BloxyCola","Pizza3","Lollipop","Medkit","Cure","TeddyBloxpin","Bat","LinkedSword","Key","Plank"},
 	CurrentOption = {"Placeholder"},
