@@ -458,6 +458,14 @@ local Button = Tab:CreateButton({
 	end,
 })
 
+local Button = Tab:CreateButton({
+	Name = "Befriend Cat",
+	Callback = function()
+		local Target = game:GetService("ReplicatedStorage").RemoteEvents.Cattery;
+	    Target:FireServer();
+	end,
+})
+
 local Section = Tab:CreateSection("Break In 2")
 
 local Tab = Window:CreateTab("Panels", 4483362458)
